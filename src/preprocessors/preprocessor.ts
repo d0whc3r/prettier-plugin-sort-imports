@@ -1,6 +1,7 @@
 import { ParserOptions, parse as babelParser } from '@babel/parser';
 import { Directive, ImportDeclaration } from '@babel/types';
 
+import { IGNORE_COMMENT } from '../constants';
 import { PrettierOptions } from '../types';
 import { extractASTNodes } from '../utils/extract-ast-nodes';
 import { getCodeFromAst } from '../utils/get-code-from-ast';
@@ -24,6 +25,7 @@ export function preprocessor(code: string, options: PrettierOptions) {
 
     const ast = babelParser(code, parserOptions);
     const interpreter = ast.program.interpreter;
+    const shallIgnore = !!ast.comments?.find((comment) => comment.value.includes(IGNORE_COMMENT));
 
     const {
         importNodes,
@@ -32,7 +34,7 @@ export function preprocessor(code: string, options: PrettierOptions) {
         extractASTNodes(ast);
 
     // short-circuit if there are no import declaration
-    if (importNodes.length === 0) return code;
+    if (importNodes.length === 0 || shallIgnore) return code;
 
     const allImports = getSortedNodes(importNodes, {
         importOrder,

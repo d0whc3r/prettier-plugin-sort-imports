@@ -7,6 +7,12 @@ import { defaultPreprocessor } from './preprocessors/default-processor';
 import { vuePreprocessor } from './preprocessors/vue-preprocessor';
 
 const options = {
+    importOrderDisabled: {
+        type: 'boolean',
+        category: 'Global',
+        default: false,
+        description: 'Disable sort ordering of imports.',
+    },
     importOrder: {
         type: 'path',
         category: 'Global',

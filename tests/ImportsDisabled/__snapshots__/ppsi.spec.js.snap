@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`imports-without-change.ts - typescript-verify: imports-without-change.ts 1`] = `
+import sample from 'sample';
+import Asample from 'a-sample';
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+import sample from "sample";
+import Asample from "a-sample";
+
+`;
