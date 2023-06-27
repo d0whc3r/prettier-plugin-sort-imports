@@ -7,6 +7,13 @@ export type ImportOrderParserPlugin =
 
 export interface PluginConfig {
     /**
+     * 'A boolean value to enable or disable the behavior of the plugin
+     * 
+     * @default false
+     */
+    importOrderDisabled?: boolean;
+
+    /**
      * A collection of Regular expressions in string format.
      *
      * ```

@@ -19,3 +19,5 @@ const PRETTIER_PLUGIN_SORT_IMPORTS_NEW_LINE =
 export const newLineNode = expressionStatement(
     stringLiteral(PRETTIER_PLUGIN_SORT_IMPORTS_NEW_LINE),
 );
+
+export const IGNORE_COMMENT = 'sort-imports-ignore'
